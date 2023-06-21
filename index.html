@@ -1,9 +1,22 @@
-<script>
-window.addEventListener("devicemotion", (event) => {
-  if (event.acceleration.x) {
-      alert('phone')
-  } else {
-      alert('pc')
-  }
-});  
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="type">Phone</div>
+  <script>
+    const type = document.querySelector('#type')
+
+    try {
+      window.ondevicemotion = function(e) {
+        type.innerHTML = 'PC'
+      }
+    } catch (e) {
+      alert('err')
+    }
+  </script>
+</body>
+</html>
